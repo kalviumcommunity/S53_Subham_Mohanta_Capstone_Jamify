@@ -1,12 +1,16 @@
-# Jamify
-## Project Idea
+<p align="center"><img src="https://i.ibb.co/NtwV7mX/Group-1.png" alt="Jamify logo"/></p>
+<b><p align="center">Jamify</p></b>
+
+<h2>Project Idea</h2>
 A website which can help budding music artists collaborate and meet others nearby within a maximum range of radius of 15 km. It should be something like an app where there are different rooms viz. pop, hiphop, rock, metal, and every other popular genre. People can join these rooms and run a scanner to spot local budding artists.
 
-## User groups
+<h2>Project Idea</h2>
+
  - **Artists**: They have the authorization to post anyhting related to music in the community and have 1-1 video calls with nearby aspiring artists.
  - **Explorer**: They can only see the posts uploaded by other artists.
 
  ## Features
+ 
   - **Genre rooms**: **Jamify** features rooms where aspiring music artists can join rooms of their mainstream genre.
   - **Locate your peers**: Artists can locate other peer artists of diverse genres in a range of radius of 5 km - 15 km.
   - **Live collaboration**: Artists also get the golden opportunity to collaborate and meet online **face to face** in 1:1 private video chat rooms.
