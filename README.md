@@ -16,10 +16,10 @@ A website which can help budding music artists collaborate and meet others nearb
   - **Live collaboration**: Artists also get the golden opportunity to collaborate and meet online **face to face** in 1:1 private video chat rooms.
 
 ## User-flowchart
-[Link](https://www.figma.com/file/An90XkSegSDzitJOzmJUm1/Jamify?type=whiteboard&node-id=0%3A1&t=X9HLh4ns02HTU7Z8-1)
+[Link](https://www.figma.com/file/An90XkSegSDzitJOzmJUm1/Jamify?type=whiteboard&node-id=0%3A1&t=amiL27UgIQ7S1bgg-1)
 
 ## Figma design
-[Link](https://www.figma.com/file/KOkgahrYonCOU6PIrblrD0/Jamify?type=design&node-id=0%3A1&mode=design&t=NDhlkQePjKJQpv3u-1)
+[Link](https://www.figma.com/file/KOkgahrYonCOU6PIrblrD0/Jamify?type=design&node-id=0%3A1&mode=design&t=8iYhvJYsCMQNl355-1)
 
 ## Tech Stack
 MERN Stack: **Jamify** will be built using the MERN stack.
@@ -28,3 +28,4 @@ MERN Stack: **Jamify** will be built using the MERN stack.
  - Database: MongoDB for efficient data storage and retrieval.
 
 For further questions or suggestions, you can reach out via email: subhammohanta99@gmail.com
+
