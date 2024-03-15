@@ -16,10 +16,10 @@ A website which can help budding music artists collaborate and meet others nearb
   - **Live collaboration**: Artists also get the golden opportunity to collaborate and meet online **face to face** in 1:1 private video chat rooms.
 
 ## User-flowchart
-[Link](https://www.figma.com/file/An90XkSegSDzitJOzmJUm1/Jamify?type=whiteboard&node-id=0%3A1&t=X9HLh4ns02HTU7Z8-1)
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAn90XkSegSDzitJOzmJUm1%2FJamify%3Ftype%3Dwhiteboard%26node-id%3D0%253A1%26t%3DamiL27UgIQ7S1bgg-1" allowfullscreen></iframe>
 
 ## Figma design
-[Link](https://www.figma.com/file/KOkgahrYonCOU6PIrblrD0/Jamify?type=design&node-id=0%3A1&mode=design&t=NDhlkQePjKJQpv3u-1)
+<iframe style="border: 8px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FKOkgahrYonCOU6PIrblrD0%2FJamify%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3D8iYhvJYsCMQNl355-1" allowfullscreen></iframe>
 
 ## Tech Stack
 MERN Stack: **Jamify** will be built using the MERN stack.
@@ -28,3 +28,4 @@ MERN Stack: **Jamify** will be built using the MERN stack.
  - Database: MongoDB for efficient data storage and retrieval.
 
 For further questions or suggestions, you can reach out via email: subhammohanta99@gmail.com
+
