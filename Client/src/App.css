@@ -1,42 +1,270 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "semibold";
+  src: url('./assets/gg sans Semibold.ttf');
+}
+
+@font-face {
+  font-family: "medium";
+  src: url('./assets/gg sans Medium.ttf'); /* Wrap font name having spaces in ther name, with '' */
+}
+
+@font-face {
+  font-family: "regular";
+  src: url('./assets/gg sans Regular.ttf');
+}
+@font-face {
+  font-family: "bold";
+  src: url('./assets/gg sans Bold.ttf');
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: "semibold";
+  font-size: 16px;
+  padding: 0.6% 0 ;
+  position: fixed;
+}
+
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(234, 234, 234, 0.543); /* Adjust opacity here (0.8 = 80% opaque) */
+  backdrop-filter: blur(50px);
+}
+
+.logo_name {
+  color: #f4f4f4;
+  transition: color 0.3s ease;
+}
+
+.logo_name.scrolled h1{
+  color: #292929;
+}
+
+.main_routes p {
+  color: #f4f4f4;
+  transition: color 0.3s ease;
+}
+
+.main_routes.scrolled p {
+  color: #292929;
+}
+
+.Login button {
+  color: #292929;
+  transition: color 0.3s ease;
+}
+
+.Login.scrolled button {
+  color: #f4f4f4;
+  background-color: #292929;
+}
+
+
+.logo_name {
+  align-self: center;
+}
+
+.logo_name h1 {
+  font-family: "Zen Dots", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #f4f4f4;
+  margin-left: 6%;
+}
+
+.main_routes {
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+}
+
+.main_routes p {
+  color: #f4f4f4;
+}
+
+.About,
+.Contact,
+.Pricing,
+.Support,
+.Login {
+  align-self: center;
+}
+
+.Login {
+  width: 5%;
+  height: 5.5vh;
+}
+
+.login-btn {
+  border: none;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  border-radius: 50px;
+  font-family: "semibold"; /* Use quotes around font family names with spaces */
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+}
+
+.Banner {
+  background-color: #DF5333;
+  display: flex;
+  justify-content: center;
+  padding-top: 25vh;
+  padding-bottom: 2vh;
+}
+
+.Heading h1 {
+  font-family: "Zen Dots", sans-serif;
+  font-weight: 400;
+  font-size: 52px;
+  color: #f4f4f4;
+}
+
+.Description{
+  margin-top: 3%;
+}
+.Description p {
+  color: #f4f4f4;
+  font-family: "regular";
+  font-size: 18px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.Banner_buttons{
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 80px 0 80px;
+  margin-top: 3%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Explore, .Learn_more{
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.Explore-btn{
+  border: none;
+  height: 90%;
+  border-radius: 50px;
+  width: 190px;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "semibold";
+  z-index: 2;
 }
 
-.card {
-  padding: 2em;
+.Learn_more-btn{
+  border: none;
+  height: 90%;
+  border-radius: 50px;
+  width: 200px;
+  background-color: #292929;
+  color: #f4f4f4;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "semibold";
 }
 
-.read-the-docs {
-  color: #888;
+.illustration-1{
+  margin-left: -50%;
+  margin-top: -20%;
+  z-index: -1;
+}
+
+.illustration-2{
+  margin-left: 95%;
+  margin-top: -41%;
+  z-index: -1;
+}
+.Section-1{
+  padding-top: 14%;
+  display: flex;
+  padding-bottom: 14%;
+  justify-content: space-around;
+
+}
+.left{
+  padding-left: 14%;
+}
+
+.right{
+  padding-right: 14%;
+}
+
+.right h1{
+  font-family: "Bold";
+  color: #292929;
+  font-size: 64px;
+  line-height: 70px;
+}
+
+.sec-text-1 p{
+  color: #101318;
+  font-family: "medium";
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.sec-text-1{
+  margin-top: 5%;
+}
+
+.Section-2{
+  display: flex;
+  justify-content: space-around;
+}
+
+.left-2{
+  padding-left: 14%;
+}
+
+.left-2 h1{
+  font-family: "Bold";
+  color: #292929;
+  font-size: 64px;
+  line-height: 70px;
+}
+
+.sec-heading-2{
+  display: flex;
+}
+
+.label{
+  border: 1.5px solid black;
+  background-color: #E4E759;
+  width: 25%;
+  border-radius: 50px;
+  font-family: "medium";
+  font-weight: 800;
+  font-size: 12px;
+  padding: 8px 0 8px 0;
+  text-align: center;
+  translate: 190% -135%;
+}
+
+.sec-text-2{
+  color: #292929;
+  font-family: "medium";
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.right-2{
+  padding-right: 14%;
 }
