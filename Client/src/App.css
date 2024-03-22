@@ -87,7 +87,7 @@
 
 .main_routes {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 30%;
 }
 
@@ -440,50 +440,85 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .parent{
-  background-color: #101113;
+  background-color: #ffffff;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.contact-box{
-  background-color: #1C1D20;
-  border-radius: 55px;
-  width: 25%;
-  height: 58%;
+.parent.about{
+  /* padding: 2% 0 0 0; */
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.contact-head{
-  margin-top: 12%;
+.about{
+  padding-top: 1%;
+  width: 48vw;
+}
+
+.about-head h1{
+  font-family: "Zen Dots", sans-serif;
+  font-weight: 400;
+  font-size: 52px;
+  color: #292929;
+}
+
+.about-title{
+  margin-top: 4%;
+  color: #292929;
+  font-family: "medium";
+  font-weight: 900;
+  font-size: 18px;
+  text-align: justify;
 }
 
 .contact-head h1{
-  font-family: "bold";
-  color: #FFFAEA;
-  margin-left: 20%;
+  font-family: "Zen Dots", sans-serif;
+  font-weight: 400;
+  font-size: 52px;
+  color: #292929;
 }
 
 .links{
-  height: 38%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 18%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  gap: 30px; 
+  margin-top: 5%;
 }
-.link-1, .link-2, .link-3{
-  margin-left: 20%;
+.link-1, .link-2, .link-3, .link-4{
   display: flex;
-  align-items: center;
   font-family: "semibold";
   font-size: 18px;
-  color: #f4f4f4;
+  background-color: #FFFAEA;
+  padding: 40px;
+  text-align: center;
+  border-radius: 25px;
 }
 
-.link-1 p, .link-2 p, .link-3 p{
-  margin-left: 4%;
+.footer-box{
+  background-color: #292929;
+  height: 450px;
 }
 
+.first{
+  display: flex;
+  padding-left: 13%;
+}
 
+.web_name{
+  display: flex;
+}
+.Login.signup{
+  padding-left: 34%;
+}
 
