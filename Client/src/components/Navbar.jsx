@@ -56,9 +56,6 @@ const Navbar = () => {
                 <div className='Pricing'>
                     <Link to="/Pricing" style={{textDecoration:"none"}}><p>Pricing</p></Link>
                 </div>
-                <div className='Support'>
-                    <Link to="/Support" style={{textDecoration:"none"}}><p>Support</p></Link>
-                </div>
             </div>
             <div className={scrolled ? 'Login scrolled' : 'Login'}>
                 <Link to="/Login" style={{textDecoration:"none"}}><button className='login-btn'>Login</button></Link>
