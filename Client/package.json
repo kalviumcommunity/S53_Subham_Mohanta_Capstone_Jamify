@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/material": "^5.15.14",
     "@studio-freight/lenis": "^1.0.42",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.15.1",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "react-window": "^1.8.10"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
