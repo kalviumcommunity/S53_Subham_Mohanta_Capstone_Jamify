@@ -588,16 +588,6 @@ video::-webkit-media-controls-fullscreen-button {
   background-color: #DF5333;
 }
 
-.home-btn:focus,
-.browse-btn:focus,
-.chat-btn:focus,
-.saved-btn:focus,
-.settings-btn:focus,
-.logout-btn:focus {
-  background-color: #DF5333;
-  border-radius: 22px;
-}
-
 .tooltip {
   width: 4%;
   height: 4%;
@@ -811,4 +801,52 @@ video::-webkit-media-controls-fullscreen-button {
 
 .grid-container>div {
   border-radius: 36px;
+}
+
+.grid-container-browse {
+  height: 91.8vh;
+  padding: 5% 4% 0% 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  background-color: #101113;
+}
+
+.layer-1{
+  position: relative;
+  z-index: 1;
+}
+.layer-1 img{
+  filter: brightness(50%);
+}
+
+.object1,
+.object2,
+.object3,
+.object4,
+.object5,
+.object6,
+.object7,
+.object8,
+.object9,
+.object10,
+.object11,
+.object12 {
+  cursor: pointer;
+  height: 245px;
+}
+
+.text{
+  position: relative;
+  z-index: 3;
+  margin-top: -25%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.name{
+  font-family: 'bold';
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFFAEA;
 }
