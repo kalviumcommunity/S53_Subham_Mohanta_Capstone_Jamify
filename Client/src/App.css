@@ -124,6 +124,29 @@
   height: 100%;
 }
 
+.login-btn:active{
+  transform:scale(0.96);
+  transition: 0.1s ease-in-out;
+}
+
+.jamify-btn{
+  width: 150%;
+  border: none;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  border-radius: 50px;
+  font-family: "semibold";
+  /* Use quotes around font family names with spaces */
+  font-size: 16px;
+  font-weight: 600;
+  height: 100%;
+}
+
+.jamify-btn:active{
+  transform:scale(0.96);
+  transition: 0.1s ease-in-out;
+}
+
 .Banner {
   background-color: #DF5333;
   display: flex;
