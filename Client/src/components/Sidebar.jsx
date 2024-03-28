@@ -1,6 +1,7 @@
 import React from 'react'
 import '../App.css'
 import { Link } from 'react-router-dom';
+import { SignedIn, SignOutButton } from "@clerk/clerk-react";
 const Sidebar = () => {
     return (
         <>
@@ -8,7 +9,7 @@ const Sidebar = () => {
                 <div className='sidebar-routes'>
                     <div className='top'>
                         <div className='sidebar-1'>
-                        <Link to="/" style={{ textDecoration: "None" }}><div className='home'>
+                        <Link to="/Dashboard" style={{ textDecoration: "None" }}><div className='home'>
                                 <div className='home-focus'></div>
                                 <button className='home-btn'>
                                     <svg width="26" height="26" viewBox="0 0 39 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,11 +56,15 @@ const Sidebar = () => {
                         </div>
                     </div>
                     <div className='logout'>
-                        <button className='logout-btn'>
+                        <SignedIn>
+                            <SignOutButton>
+                            <Link to="/" style={{ textDecoration: "none" }}><button className='logout-btn'>
                             <svg style={{marginLeft:"10%"}} width="26" height="26" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.70409 24.675H15.8421C18.2811 24.675 19.5462 23.3985 19.5462 20.9367V15.8079H17.3124V20.7999C17.3124 21.8599 16.7539 22.4411 15.6484 22.4411H3.88645C2.78092 22.4411 2.23385 21.8599 2.23385 20.7999V3.87505C2.23385 2.81511 2.78092 2.23385 3.88645 2.23385H15.6484C16.7539 2.23385 17.3124 2.81511 17.3124 3.87505V8.87843H19.5462V3.73829C19.5462 1.28788 18.2811 0 15.8421 0H3.70409C1.26509 0 0 1.28788 0 3.73829V20.9367C0 23.3985 1.26509 24.675 3.70409 24.675ZM11.0439 13.3803H22.5323L24.2191 13.3005L23.3871 14.0072L21.6889 15.6028C21.4837 15.7851 21.3698 16.0473 21.3698 16.3094C21.3698 16.8223 21.7573 17.2554 22.2816 17.2554C22.5551 17.2554 22.7602 17.1414 22.954 16.9477L26.6467 13.1296C26.9088 12.8561 27 12.6053 27 12.3318C27 12.0583 26.9088 11.8075 26.6467 11.534L22.954 7.70452C22.7602 7.51076 22.5551 7.40819 22.2816 7.40819C21.7573 7.40819 21.3698 7.81849 21.3698 8.34276C21.3698 8.5935 21.4837 8.86703 21.6889 9.04939L23.3871 10.6564L24.2305 11.363L22.5323 11.2718H11.0439C10.4854 11.2718 10.0068 11.7505 10.0068 12.3318C10.0068 12.913 10.4854 13.3803 11.0439 13.3803Z" fill="#FFFAEA" />
                             </svg>
-                        </button>
+                        </button></Link>
+                        </SignOutButton>
+                        </SignedIn>
                     </div>
                 </div>
             </nav>
