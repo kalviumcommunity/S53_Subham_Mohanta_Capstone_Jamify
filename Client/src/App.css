@@ -466,7 +466,6 @@
 
 
 .video {
-  z-index: 3;
   margin-top: -58%;
 }
 
@@ -872,4 +871,103 @@ video::-webkit-media-controls-fullscreen-button {
   font-size: 18px;
   font-weight: 800;
   color: #FFFAEA;
+}
+
+.footer{
+  background-color: #1B1B1B;
+  padding: 3% 4% 3% 4%;
+}
+
+.footer-1{
+  display: flex;
+  justify-content: space-around;
+}
+.footer-logo{
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo h1{
+  font-family: "Zen Dots", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  color: #f4f4f4;
+  margin-left: 1%;
+}
+
+.footer-descrip p{
+  font-family: 'medium';
+}
+
+.socials{
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+}
+
+.footer-links{
+  display: flex;
+  flex-direction: column;
+  font-family: 'medium';
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.policy{
+  color: #888888;
+}
+
+.footer-links a:hover, .figma-link a:hover{
+  color: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.Signup{
+  width: 5%;
+  height: 5.5vh;
+}
+.signup-btn{
+  border: none;
+  background-color: #DF5333;
+  cursor: pointer;
+  border-radius: 50px;
+  font-family: "semibold";
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  color: #f4f4f4;
+}
+
+.custom1-hr{
+  border: 2px solid #51545B;
+  border-radius: 4px;
+}
+
+.jamify-btn.footer{
+  width: 160%;
+  border: none;
+  background-color: #DF5333;
+  cursor: pointer;
+  border-radius: 50px;
+  font-family: "semibold";
+  /* Use quotes around font family names with spaces */
+  font-size: 16px;
+  font-weight: 600;
+  height: 100%;
+  color: #f4f4f4;
+}
+
+.jamify-btn.footer:active{
+  transform:scale(0.96);
+  transition: 0.1s ease-in-out;
+}
+
+.footer-2 p{
+  font-family: 'medium';
+}
+
+.figma-link svg{
+  margin-left: 6px;
 }
