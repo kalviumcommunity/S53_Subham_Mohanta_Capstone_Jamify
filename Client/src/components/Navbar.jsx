@@ -60,7 +60,7 @@ const Navbar = () => {
             </div>
             <div className={scrolled ? 'Login scrolled' : 'Login'}>
                 <SignedOut>
-                    <SignInButton className='login-btn'/>
+                    <SignInButton className='login-btn' />
                 </SignedOut>
                 <SignedIn>
                 <Link to="/Dashboard" style={{ textDecoration: "none" }}><button className='jamify-btn'>Open Jamify</button></Link>
