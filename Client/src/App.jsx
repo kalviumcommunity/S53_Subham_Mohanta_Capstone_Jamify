@@ -5,9 +5,9 @@ import Landing from './components/Landing'
 import Contact from './components/Contact'
 import Pricing from './components/Pricing'
 import About from './components/About'
-import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
 import Browse from './components/Browse'
+import Chats from './components/Chats'
 
 function App() {
 
@@ -20,6 +20,7 @@ function App() {
           <Route path='/About' element={<About/>}/>
           <Route path='/Dashboard' element={<Dashboard/>}/>
           <Route path='/Browse' element={<Browse/>}/>
+          <Route path='/Chats' element={<Chats/>}/>
         </Routes>
     </>
   )

@@ -971,3 +971,64 @@ video::-webkit-media-controls-fullscreen-button {
 .figma-link svg{
   margin-left: 6px;
 }
+
+.chat-container{
+  background-color: #101113;
+  height: 93.9vh;
+  padding: 0% 0% 3% 6%;
+  display: flex;
+}
+.sidebar-alt{
+  width:20%;
+  background-color: #151619;
+  height: 100%;
+  position: fixed;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  padding: 10%;
+  height: 5%;
+}
+
+.search input{
+  color: #121212;
+  width: 90%;
+  background-color: #FFFAEA;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+}
+.search-inside{
+  padding-left: 20px;
+  font-family: 'medium';
+  font-size: 16px;
+}
+
+.users p{
+  font-family: 'semibold';
+  color: #FFFAEA;
+  padding-left: 6%;
+}
+
+.chat-box{
+  background-color: #DF5333;
+  height: 10vh;
+  width: 100%;
+  margin-left: 21.2%;
+  display: flex;
+  align-items: center;
+}
+
+.profile-img{
+  display: flex;
+  margin-left: 3%;
+  align-items: center;
+}
+
+.profile-img p{
+  font-family: 'semibold';
+  color: #292929;
+  padding-left: 18%;
+}
