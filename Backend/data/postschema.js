@@ -9,7 +9,7 @@ const postSchema = new Schema({
     likes: Number,
     comments: Array,
     room: String,
-    date_posted: String,
+    date_posted: Date,
 });
 
 const postModel = new mongoose.model("posts", postSchema);
