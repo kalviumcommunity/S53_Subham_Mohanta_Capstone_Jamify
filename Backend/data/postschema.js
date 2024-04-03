@@ -12,5 +12,5 @@ const postSchema = new Schema({
     date_posted: String,
 });
 
-const postModel = new mongoose.model("users", postSchema);
+const postModel = new mongoose.model("posts", postSchema);
 module.exports =  postModel;
