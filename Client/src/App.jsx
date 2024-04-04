@@ -8,6 +8,7 @@ import About from './components/About'
 import Dashboard from './components/Dashboard'
 import Browse from './components/Browse'
 import Chats from './components/Chats'
+import Settings from './components/Settings'
 
 function App() {
 
@@ -21,7 +22,9 @@ function App() {
           <Route path='/Dashboard' element={<Dashboard/>}/>
           <Route path='/Browse' element={<Browse/>}/>
           <Route path='/Chats' element={<Chats/>}/>
+          <Route path='/Settings' element={<Settings/>}/>
         </Routes>
+        {/* <Bpp/> */}
     </>
   )
 }
