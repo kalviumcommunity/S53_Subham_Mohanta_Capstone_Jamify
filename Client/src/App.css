@@ -1032,3 +1032,56 @@ video::-webkit-media-controls-fullscreen-button {
   color: #292929;
   padding-left: 18%;
 }
+
+.settings-container{
+  background-color: #101113;
+  height: 83.9vh;
+  padding: 0% 6% 0% 6%;
+}
+
+.settings-banner{
+  background-color: #000;
+  height: 16vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.Clerk-img{
+  margin-left: 8%;
+  translate: 0 -48%;
+}
+
+.settings-box{
+  padding: 3%;
+  margin-left: 8%;
+  background-color: #212328;
+  border-radius: 18px;
+  height: 60%;
+}
+
+.settings-child h1{
+  font-family: 'bold';
+  font-size: 36px;
+}
+
+.user-about h1{
+  font-family: 'bold';
+  font-size: 18px;
+}
+
+.user-gender h1{
+  font-family: 'bold';
+  font-size: 18px;
+}
+.rooms{
+  font-family: 'semibold';
+  font-size: 16px;
+  width: 50%;
+}
+.rooms div div{
+  width: 90px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
