@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard'
 import Browse from './components/Browse'
 import Chats from './components/Chats'
 import Settings from './components/Settings'
+import Chat from './components/Chat'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
           <Route path='/Chats' element={<Chats/>}/>
           <Route path='/Settings' element={<Settings/>}/>
         </Routes>
-        {/* <Bpp/> */}
+        {/* <Chat/> */}
     </>
   )
 }
