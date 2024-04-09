@@ -12,8 +12,10 @@
   "dependencies": {
     "@clerk/clerk-react": "^4.30.7",
     "@studio-freight/lenis": "^1.0.42",
+    "firebase": "^10.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-player": "^2.15.1",
     "react-router-dom": "^6.22.3",
     "redux": "^5.0.1"
