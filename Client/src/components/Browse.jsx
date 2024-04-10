@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Sidebar from './Sidebar';
+import {Link} from "react-router-dom"
 
 // Import your images
 import Image_1 from "../assets/1.png";
@@ -38,7 +39,7 @@ const Browse = () => {
             <Sidebar />
             <div className="grid-container-browse">
                 {objectsData.map((object, index) => (
-                    <div key={`object${index + 1}`} className={`object${index + 1}`}>
+                    <Link key={index} to={`/${object.name}`}><div key={`object${index + 1}`} className={`object${index + 1}`}>
                         <div className='layer-1'>
                             <img src={object.image} alt={`Object ${index + 1}`} width="200px"/>
                         </div>
@@ -48,7 +49,7 @@ const Browse = () => {
 <path d="M0.93934 17.2028C0.353553 17.7886 0.353553 18.7383 0.93934 19.3241C1.52513 19.9099 2.47487 19.9099 3.06066 19.3241L0.93934 17.2028ZM19.7635 1.99997C19.7635 1.17155 19.0919 0.499972 18.2635 0.499973L4.76346 0.499972C3.93503 0.499972 3.26346 1.17154 3.26346 1.99997C3.26346 2.8284 3.93503 3.49997 4.76346 3.49997H16.7635V15.5C16.7635 16.3284 17.435 17 18.2635 17C19.0919 17 19.7635 16.3284 19.7635 15.5L19.7635 1.99997ZM3.06066 19.3241L19.3241 3.06063L17.2028 0.939312L0.93934 17.2028L3.06066 19.3241Z" fill="white"/>
                             </svg>
                         </div>
-                    </div>
+                    </div></Link>
                 ))}
             </div>
         </>

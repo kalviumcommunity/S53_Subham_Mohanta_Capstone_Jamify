@@ -10,9 +10,23 @@ import Browse from './components/Browse'
 import Chats from './components/Chats'
 import Settings from './components/Settings'
 import Chat from './components/Chat'
+import GenreRoom from "./components/GenreRoom"
 
 function App() {
-
+  const genres = [
+    { name: 'Hiphop', displayName: 'Hip Hop' },
+    { name: 'Pop', displayName: 'Pop' },
+    { name: 'Classical', displayName: 'Classical' },
+    { name: 'Rock', displayName: 'Rock' },
+    { name: 'EDM', displayName: 'EDM' },
+    { name: 'R&B', displayName: 'R&B' },
+    { name: 'Kpop', displayName: 'K-Pop' },
+    { name: 'Jazz', displayName: 'Jazz' },
+    { name: 'Metal', displayName: 'Metal' },
+    { name: 'Punk', displayName: 'Punk' },
+    { name: 'Folk', displayName: 'Folk' },
+    { name: 'Lo-Fi', displayName: 'Lo-Fi' }
+];
   return (
     <>
         <Routes>
@@ -24,6 +38,13 @@ function App() {
           <Route path='/Browse' element={<Browse/>}/>
           <Route path='/Chats' element={<Chats/>}/>
           <Route path='/Settings' element={<Settings/>}/>
+          {genres.map((genre, index) => (
+        <Route
+          key={`genre${index + 1}`}
+          path={`/${genre.name}`}
+          element={<GenreRoom name={genre.displayName} />}
+        />
+      ))}
         </Routes>
         {/* <Chat/> */}
     </>

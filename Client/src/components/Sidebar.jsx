@@ -1,7 +1,7 @@
 import React from 'react'
 import '../App.css'
 import { Link } from 'react-router-dom';
-import { useClerk, SignedIn, SignOutButton, UserButton } from "@clerk/clerk-react";
+import { useClerk, SignedIn, SignOutButton } from "@clerk/clerk-react";
 
 const Sidebar = () => {
 
@@ -68,7 +68,6 @@ const Sidebar = () => {
                                     </svg>
                                 </button></Link>
                             </SignOutButton>
-                            <UserButton/>
                         </SignedIn>
                     </div>
                 </div>
