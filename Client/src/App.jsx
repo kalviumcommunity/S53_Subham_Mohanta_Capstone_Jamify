@@ -9,7 +9,6 @@ import Dashboard from './components/Dashboard'
 import Browse from './components/Browse'
 import Chats from './components/Chats'
 import Settings from './components/Settings'
-import Chat from './components/Chat'
 import GenreRoom from "./components/GenreRoom"
 
 function App() {
@@ -46,7 +45,6 @@ function App() {
         />
       ))}
         </Routes>
-        {/* <Chat/> */}
     </>
   )
 }
