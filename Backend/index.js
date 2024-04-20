@@ -21,8 +21,8 @@ app.post("/order", async (req, res) => {
 
     try {
         const razorpay = new Razorpay({
-            key_id: "rzp_test_uA2VH15w95aUrD",
-            key_secret: "8vDZJkfunNI1yGyL9yCDymhe"
+            key_id: "**********",
+            key_secret: "**********"
         });
 
         if (!req.body) {
