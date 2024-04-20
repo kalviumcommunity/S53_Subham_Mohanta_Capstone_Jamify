@@ -22,6 +22,82 @@ const Landing = () => {
     requestAnimationFrame(raf)
   }
   requestAnimationFrame(raf)
+
+  const paymentHandler = async (event) => {
+
+    const amount = 4000;
+    const currency = 'INR';
+    const receiptId = '1234567890';
+
+    const response = await fetch(`http://localhost:3000/order`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        amount,
+        currency,
+        receipt: receiptId
+      })
+    })
+
+      const order = await response.json();
+      console.log('order', order);
+
+
+      var option = {
+        key:import.meta.env.RAZORPAY_KEY_ID,
+        amount,
+        currency,
+        name:"Jamify",
+        description: "Test Transaction",
+        image:"https://i.ibb.co/r3mzMPD/Group-15.png",
+        order_id:order.id,
+        handler: async function(response) {
+          
+          const body = {...response,}
+
+          const validateResponse = await fetch('http://localhost:3000/validate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+
+          })
+
+          const jsonResponse = await validateResponse.json();
+
+          console.log('jsonResponse', jsonResponse);
+          
+        },
+        prefill: {
+          name: "Web Coder", 
+          email: "webcoder@example.com",
+          contact: "9000000000", 
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      }
+
+      var rzp1 = new Razorpay(option);
+      rzp1.on("payment.failed", function(response) {
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+      })
+
+      rzp1.open();
+      event.preventDefault();
+    }
   return (
     <>
       <Navbar />
@@ -118,13 +194,13 @@ const Landing = () => {
               </svg>
             </div>
             <div className='plan-2-cost'>
-              <h1>₹40/mo</h1>
+              <h1>₹40</h1>
             </div>
             <div className='Recommendation'>
               <p>For Professionals</p>
             </div>
             <div className='Button-2'>
-              <button className=''>Join now</button>
+              <button onClick={paymentHandler}className=''>Join now</button>
             </div>
             <div className='perks'>
               <div className='perk-1'>
