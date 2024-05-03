@@ -26,7 +26,7 @@ const Navbar = () => {
     return (
         <nav className={scrolled ? 'navbar scrolled' : 'navbar'}>
             <div className='web_name'>
-                <Link to="/" style={{ textDecoration: "none" }}>
+                <a href="#" style={{ textDecoration: "none" }}>
                     <div style={{ display: 'flex' }}>
                         <div className='logo_svg'>
                             <svg width="50" height="50" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,17 +45,17 @@ const Navbar = () => {
                             <h1>JAMIFY</h1>
                         </div>
                     </div>
-                </Link>
+                </a>
             </div>
             <div className={scrolled ? 'main_routes scrolled' : 'main_routes'}>
                 <div className='About'>
-                    <Link to="/About" style={{ textDecoration: "none" }}><p>About</p></Link>
-                </div>
-                <div className='Contact'>
-                    <Link to="/Contact" style={{ textDecoration: "none" }}><p>Contact</p></Link>
+                    <a href="#" style={{ textDecoration: "none" }}><p>About</p></a>
                 </div>
                 <div className='Pricing'>
-                    <Link to="/Pricing" style={{ textDecoration: "none" }}><p>Pricing</p></Link>
+                    <a href="#pricing" style={{ textDecoration: "none" }}><p>Pricing</p></a>
+                </div>
+                <div className='Contact'>
+                    <a href="#contact" style={{ textDecoration: "none" }}><p>Contact</p></a>
                 </div>
             </div>
             <div className={scrolled ? 'Login scrolled' : 'Login'}>

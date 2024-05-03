@@ -5,6 +5,7 @@
   margin: 0;
 }
 
+
 @font-face {
   font-family: "semibold";
   src: url('./assets/gg sans Semibold.ttf');
@@ -26,6 +27,10 @@
   src: url('./assets/gg sans Bold.ttf');
 }
 
+/* html{
+  scroll-behavior: smooth;
+} */
+
 .navbar {
   width: 100%;
   display: flex;
@@ -34,6 +39,7 @@
   font-size: 16px;
   padding: 0.6% 0;
   position: fixed;
+  z-index: 999;
 }
 
 .navbar {
@@ -306,7 +312,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 14% 0 8% 0;
+  padding: 6% 0 8% 0;
 }
 
 .Section-3.route {
@@ -584,7 +590,7 @@ video::-webkit-media-controls-fullscreen-button {
   height: 35px;
   border-radius: 12px;
   border: none;
-  background-color: #DF5333;
+  background-color: #292929;
   color: #f4f4f4;
   cursor: pointer;
 }
@@ -855,6 +861,37 @@ video::-webkit-media-controls-fullscreen-button {
   grid-template-columns: repeat(3, 10fr) 15fr 20fr;
   /* Adjust as needed */
   grid-template-rows: 44fr 76fr 87fr;
+}
+
+.sign-in-container{
+  background-color: #101113;
+  height: 92vh;
+  padding: 2% 4% 1.9% 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8%;
+}
+
+.sign-in-container h3{
+  color: #FFFAEA;
+  font-family: "bold";
+  font-size: 32px;
+}
+
+.login-btn-dashboard{
+  background-color: #DF5333;
+  border: none;
+  padding: 1% 14%;
+  border-radius: 12px;
+  font-family: medium;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #FFFAEA;
 }
 
 .grid-container>div {
@@ -1133,7 +1170,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .genre-room-container {
   background-color: #101113;
-  height: 100%;
+  height: 100vh;
   padding: 0% 0% 3% 6%;
   display: flex;
   flex-direction: column;
@@ -1271,7 +1308,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 main {
   padding: 10px;
-  height: 49vh;
+  height: 40vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -1334,7 +1371,7 @@ form input::placeholder{
 form input{
   background-color: #1E1F22;
   height: 40px;
-  width: 90%;
+  width: 40%;
   height: 40px;
   border-radius: 8px;
   border: none;
@@ -1355,13 +1392,6 @@ main::-webkit-scrollbar-thumb {
   border-radius: 12px;  
 }
 
-form button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  border: none;
-  background-color: #2B2D31;
-}
 
 ul,
 li {
@@ -1370,8 +1400,24 @@ li {
 }
 
 .App{
-  margin-top: 10%;
   background-color: #101113;
   width: 90%;
 }
+
+.sign-out, .sign-in{
+  background-color: #fff;
+  border: none;
+  padding: 1% 2%;
+  border-radius: 12px;
+  font-family: medium;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.sign-in{
+  margin-top: 18%;
+}
+
 

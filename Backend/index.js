@@ -18,12 +18,12 @@ app.get('/chipichipi', (req, res) => {
 })
 
 app.post("/order", async (req, res) => {
-
     try {
         const razorpay = new Razorpay({
-            key_id: "**********",
-            key_secret: "**********"
+            key_id: "*********",
+            key_secret: "*********"
         });
+
 
         if (!req.body) {
             return res.status(400).send("Bad Request");
