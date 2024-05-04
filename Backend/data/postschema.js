@@ -10,6 +10,7 @@ const postSchema = new Schema({
     comments: Array,
     room: String,
     date_posted: Date,
+    user: String
 });
 
 const postModel = new mongoose.model("posts", postSchema);

@@ -1170,7 +1170,7 @@ video::-webkit-media-controls-fullscreen-button {
 
 .genre-room-container {
   background-color: #101113;
-  height: 100vh;
+  height: 100%;
   padding: 0% 0% 3% 6%;
   display: flex;
   flex-direction: column;
@@ -1288,122 +1288,6 @@ video::-webkit-media-controls-fullscreen-button {
   color: #FFFAEA;
 }
 
-.Welcome-msg {
-  margin-top: 2%;
-}
-
-.Welcome-msg h1 {
-  font-family: 'bold';
-  color: #FFFAEA;
-  text-align: center;
-}
-
-.Welcome-msg p {
-  margin-top: 1%;
-  font-family: 'semibold';
-  color: #595F6B;
-  font-size: 20px;
-  text-align: center;
-}
-
-main {
-  padding: 10px;
-  height: 40vh;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-}
-
-.img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin: 2px 5px;
-}
-
-.message {
-  display: flex;
-  align-items: center;
-}
-
-
-.sent {
-  flex-direction: row-reverse;
-}
-
-.sent p {
-  color: white;
-  background: #0b93f6;
-  align-self: flex-end;
-}
-
-.received p {
-  background: #e5e5ea;
-  color: black;
-}
-
-.sign-in {
-  color: #282c34;
-  background: white;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-
-
-form {
-  height: 5vh;
-  position: fixed;
-  bottom: 6%;
-  width: 85%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-around;
-}
-
-form input::placeholder{
-  font-family: 'semibold';
-  color: #595F6B;
-  font-weight: 800;
-}
-
-form input{
-  background-color: #1E1F22;
-  height: 40px;
-  width: 40%;
-  height: 40px;
-  border-radius: 8px;
-  border: none;
-  color: #FFFAEA;
-  padding-left: 1%;
-}
-
-main::-webkit-scrollbar {
-  width: 5px;
-}
-
-main::-webkit-scrollbar-track {
-  background: #1e1e24;
-}
-
-main::-webkit-scrollbar-thumb {
-  background: #DF5333;
-  border-radius: 12px;  
-}
-
-
-ul,
-li {
-  text-align: left;
-  list-style: none;
-}
-
-.App{
-  background-color: #101113;
-  width: 90%;
-}
-
 .sign-out, .sign-in{
   background-color: #fff;
   border: none;
@@ -1418,6 +1302,22 @@ li {
 
 .sign-in{
   margin-top: 18%;
+}
+
+.post-container{
+  display: grid;
+  margin: 15% 23% 9% ;
+  place-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 7%;
+  grid-row-gap: 5%;
+}
+
+.post-card{
+  background-color: #1E1F22;
+  padding: 10%;
+  height: 100%;
+  border-radius: 8%;
 }
 
 

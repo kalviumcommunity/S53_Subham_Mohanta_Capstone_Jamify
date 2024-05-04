@@ -5,6 +5,8 @@ const Razorpay = require('razorpay');
 const cors = require('cors');
 const crypto = require('crypto');
 const exp = require('constants');
+const router = require('./routes/route');
+const { ConnectToDB, stopDatabase, isConnected } = require('./db');
 
 require("dotenv").config();
 
@@ -12,10 +14,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.get('/chipichipi', (req, res) => {
-    res.send('chapachapa');
-    res.end();
-})
+app.use("/api", router);
+
+app.get('/', async (req, res) => {
+    const dbStatus = isConnected() ? 'disconnected' : 'connected';
+    res.send({
+        message: 'o_O',
+        database: dbStatus,
+    });
+});
+
+if (require.main === module) {
+    app.listen(port, () => {
+        console.log(`🚀 server running on PORT: ${port} http://localhost:${port}/`);
+        ConnectToDB()
+    });
+}
 
 app.post("/order", async (req, res) => {
     try {
@@ -46,7 +60,7 @@ app.post("/order", async (req, res) => {
 
 app.post("/validate", async (req, res) => {
 
-    const {razorpay_order_id, razorpay_payment_id, razorpay_signature} = req.body
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body
 
     const sha = crypto.createHmac("sha256", process.env.RAZORPAY_KEY_SECRET);
     // order_id + " | " + razorpay_payment_id
@@ -55,14 +69,9 @@ app.post("/validate", async (req, res) => {
 
     const digest = sha.digest("hex");
 
-    if (digest!== razorpay_signature) {
-        return res.status(400).json({msg: " Transaction is not legit!"});
+    if (digest !== razorpay_signature) {
+        return res.status(400).json({ msg: " Transaction is not legit!" });
     }
 
-    res.json({msg: " Transaction is legit!", orderId: razorpay_order_id,paymentId: razorpay_payment_id});
-})
-
-
-app.listen(port, () => {
-    console.log(`🚀 server running on PORT: ${port} http://localhost:${port}/`)
+    res.json({ msg: " Transaction is legit!", orderId: razorpay_order_id, paymentId: razorpay_payment_id });
 })
