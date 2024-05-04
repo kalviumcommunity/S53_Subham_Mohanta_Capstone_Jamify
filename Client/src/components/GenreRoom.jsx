@@ -1,11 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from "./Sidebar"
 import { Link } from "react-router-dom"
 import { useClerk } from '@clerk/clerk-react';
 import { SignInButton } from '@clerk/clerk-react';
+import axios from 'axios';
 
 const GenreRoom = ({name}) => {
     const {user} = useClerk();
+    const [posts, setPosts] = useState([]);
+    
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/api/data");
+                setPosts(response.data.data);
+            } catch (error) {
+                console.log("error: ", error);
+            }
+        };
+        fetchPosts();
+    }, []);
+
+    const PostCard = ({post}) =>{
+        return (
+            <div className="post-card" style={{fontFamily:"medium", color:"white"}} key={post._id}>
+                <div className='top-card'>
+                    <div className=''>
+                        <p style={{color:"#df3555"}}>{post.user}</p>
+                    </div>
+                    <div className=''>
+                        <p>{post.date_posted}</p>
+                    </div>
+                </div>
+                <div className='mid-card'>
+                    <div className=''>
+                        <p>{post.description}</p>
+                    </div>
+                    <div className=''>
+                        <img src={post.image} width="40%"/>
+                    </div>
+                </div>
+                <div className='bottom-card'>
+                    <div className='likes'>{post.likes}</div>
+                    <div className='comments'>{post.comments}</div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <>
@@ -46,6 +87,11 @@ const GenreRoom = ({name}) => {
                 </div>
                 <div className='Alert'>
                     <p> 0 new messages since {new Date().toLocaleDateString()}</p>
+                </div>
+                <div className='post-container'>
+                {posts.map((post) => (
+                    <PostCard key={post._id} post={post} />
+                ))}
                 </div>
             </div>) : (
                 <div className='sign-in-container'>
