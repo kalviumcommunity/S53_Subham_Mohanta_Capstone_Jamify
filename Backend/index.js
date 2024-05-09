@@ -4,7 +4,6 @@ const port = 3000
 const Razorpay = require('razorpay');
 const cors = require('cors');
 const crypto = require('crypto');
-const exp = require('constants');
 const router = require('./routes/route');
 const { ConnectToDB, stopDatabase, isConnected } = require('./db');
 
@@ -34,8 +33,8 @@ if (require.main === module) {
 app.post("/order", async (req, res) => {
     try {
         const razorpay = new Razorpay({
-            key_id: "*********",
-            key_secret: "*********"
+            key_id: "rzp_test_uA2VH15w95aUrD",
+            key_secret: "8vDZJkfunNI1yGyL9yCDymhe"
         });
 
 
