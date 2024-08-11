@@ -1171,7 +1171,7 @@ video::-webkit-media-controls-fullscreen-button {
 .genre-room-container {
   background-color: #101113;
   height: 100%;
-  padding: 0% 0% 3% 6%;
+  padding: 0% 0% 0% 6%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1305,12 +1305,14 @@ video::-webkit-media-controls-fullscreen-button {
 }
 
 .post-container{
+  padding-top: 20%;
   display: grid;
-  margin: 15% 23% 9% ;
   place-content: center;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 7%;
-  grid-row-gap: 5%;
+  grid-column-gap: 5%;
+  grid-row-gap: 30%;
+  width: 84%;
+  height: 100%;
 }
 
 .post-card{

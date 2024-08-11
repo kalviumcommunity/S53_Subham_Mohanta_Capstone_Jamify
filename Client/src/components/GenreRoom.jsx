@@ -12,7 +12,7 @@ const GenreRoom = ({name}) => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/data");
+                const response = await axios.get("https://jamify-0or0.onrender.com/api/data");
                 setPosts(response.data.data);
             } catch (error) {
                 console.log("error: ", error);
@@ -22,6 +22,13 @@ const GenreRoom = ({name}) => {
     }, []);
 
     const PostCard = ({post}) =>{
+
+        const formattedDate = new Date(post.date_posted).toLocaleString('en-US', {
+            month: 'long', 
+            day: 'numeric',
+            year: 'numeric' 
+        });
+
         return (
             <div className="post-card" style={{fontFamily:"medium", color:"white"}} key={post._id}>
                 <div className='top-card'>
@@ -29,7 +36,7 @@ const GenreRoom = ({name}) => {
                         <p style={{color:"#df3555"}}>{post.user}</p>
                     </div>
                     <div className=''>
-                        <p>{post.date_posted}</p>
+                        <p>{formattedDate}</p>
                     </div>
                 </div>
                 <div className='mid-card'>
