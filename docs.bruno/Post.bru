@@ -1,0 +1,18 @@
+meta {
+  name: Post
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/api/create
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "image": "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fin-your-opinion-what-is-the-strongest-bankai-and-why-v0-1g8vn7jzvbsa1.jpg%3Fwidth%3D933%26format%3Dpjpg%26auto%3Dwebp%26s%3D83190778033361dab7def4710118658836e560bc&rdt=51123",
+    "description": "description"
+  }
+}
