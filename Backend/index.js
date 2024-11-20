@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require('express')
 const app = express()
 const port = 3000
@@ -6,8 +8,6 @@ const cors = require('cors');
 const crypto = require('crypto');
 const router = require('./routes/route');
 const { ConnectToDB, stopDatabase, isConnected } = require('./db');
-
-require("dotenv").config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
