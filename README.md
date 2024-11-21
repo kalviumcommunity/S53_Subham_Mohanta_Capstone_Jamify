@@ -1,4 +1,4 @@
-<p align="center"><img src="https://ibb.co/Pz9z8q2" width="80px" alt="Jamify logo"/></p>
+<p align="center"><img src="https://i.ibb.co/2YsYBGz/Group-1.png" width="80px" alt="Jamify logo"/></p>
 <b><p align="center">Jamify</p></b>
 
 <h2>Project Idea</h2>
