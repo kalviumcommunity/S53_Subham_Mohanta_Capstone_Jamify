@@ -35,8 +35,8 @@ Follow these steps to set up the project locally.
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/your-project.git
-   cd your-project
+   git clone https://github.com/kalviumcommunity/S53_Subham_Mohanta_Capstone_Jamify.git
+   cd S53_Subham_Mohanta_Capstone_Jamify
    ```  
 
 2. Install dependencies:  
@@ -45,11 +45,14 @@ Follow these steps to set up the project locally.
    ```  
 
 3. Configure environment variables:  
-   - Create a `.env` file in the project root:  
+   - Create a `.env` file in the root of Client directory:  
+     ```plaintext
+     VITE_CLERK_PUBLISHABLE_KEY=<your-clerk-api-key>
+     ```
+   - Create a `.env` file in the root of Backend directory:  
      ```plaintext
      MONGO_URI=<your-database-url>
-     VITE_CLERK_PUBLISHABLE_KEY=<your-clerk-api-key>
-     ```  
+     ```
 
 4. Start the development server:  
    ```bash
@@ -63,11 +66,12 @@ Follow these steps to set up the project locally.
 
 | Layer         | Technology         |
 |---------------|--------------------|
-| Frontend      | React, Vite, ShadcnUI |        |
-| Backend       | Node.js, Express.js|
+| Frontend      | React, Vite, ShadcnUI |
+| Backend       | Node.js, Express.js |
 | Database      | MongoDB |
 | Deployment    | Vercel |
 | Authentication| JWT, Clerk |
+| Payment | Razorpay |
 
 
 ## **Contributing** 🤝  
