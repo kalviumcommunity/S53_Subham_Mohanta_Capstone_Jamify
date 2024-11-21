@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.ibb.co/NtwV7mX/Group-1.png" width="80px" alt="Jamify logo"/></p>
+<p align="center"><img src="https://ibb.co/Pz9z8q2" width="80px" alt="Jamify logo"/></p>
 <b><p align="center">Jamify</p></b>
 
 <h2>Project Idea</h2>
@@ -19,7 +19,7 @@ A website which can help budding music artists collaborate and meet others nearb
 [Link](https://www.figma.com/file/An90XkSegSDzitJOzmJUm1/Jamify?type=whiteboard&node-id=0%3A1&t=amiL27UgIQ7S1bgg-1)
 
 ## Figma design
-[Link](https://www.figma.com/file/KOkgahrYonCOU6PIrblrD0/Jamify?type=design&node-id=0%3A1&mode=design&t=8iYhvJYsCMQNl355-1)
+[Link](https://www.figma.com/design/xLWMNMr5E8VdSopqV6ppIV/Jamify(new)?node-id=0-1&t=ZzQH1uOAWKUFA7QV-1)
 
 ## Tech Stack
 MERN Stack: **Jamify** will be built using the MERN stack.
