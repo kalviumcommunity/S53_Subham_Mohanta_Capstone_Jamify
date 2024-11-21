@@ -105,7 +105,7 @@ We welcome contributions!
 
 ## **Stay Connected** 🌐  
 
-- **GitHub Discussions**: [Join the conversation](https://github.com/your-username/your-project/discussions)  
-- **Issues**: [Report a bug or suggest a feature](https://github.com/your-username/your-project/issues)  
+- **Mail**: subhammohanta99@gmail.com
+- **LinkedIn**: [Subham Mohanta](https://www.linkedin.com/in/subham-mohanta-59b683289/)
 
 Let’s build something amazing together! 🎉  
