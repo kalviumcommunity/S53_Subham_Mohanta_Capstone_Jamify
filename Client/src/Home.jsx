@@ -2,20 +2,102 @@ import React, { useState, useRef, useEffect } from 'react'
 import {
   Search, History, Plus, Menu, X,
   House,
-  HomeIcon
+  HomeIcon,
+  Shuffle, SkipBack, Play, Pause, SkipForward, Repeat, Mic2, Link, List, Headphones, Volume2, Maximize2,
+  MoveDiagonal,
+  ExternalLink
 } from 'lucide-react'
 import { Button } from "./components/ui/button"
 import { Input } from "./components/ui/input"
+import { Slider } from "./components/ui/slider"
+// import { Tooltip } from "./components/ui/tooltip"
+
 import { Sheet, SheetContent, SheetTrigger } from "./components/ui/sheet"
 
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/clerk-react";
 
+import ReactPlayer from "react-player/youtube";
+
+import axios from 'axios'
+
+import { useUser } from '@clerk/clerk-react'
+
 export default function Home() {
-  const [sidebarWidth, setSidebarWidth] = useState(320)
-  const sidebarRef = useRef(null)
-  const [isResizing, setIsResizing] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [sidebarWidth, setSidebarWidth] = useState(320);
+  const sidebarRef = useRef(null);
+  const [isResizing, setIsResizing] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showGrid, setShowGrid] = useState(false);
+
+  const [videos, setVideos] = useState([]); // Store video IDs
+  const [videoDetails, setVideoDetails] = useState([]); // Store video titles
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const playerRef = useRef(null);
+
+  const API_KEY = import.meta.env.VITE_APP_YT_KEY;
+  const PLAYLIST_ID = import.meta.env.VITE_APP_YT_PLAYLIST;
+
+  const fetchPlaylistVideos = async () => {
+    try {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${PLAYLIST_ID}&key=${API_KEY}`
+      );
+      const videoIds = response.data.items.map(
+        (item) => item.snippet.resourceId.videoId
+      );
+      setVideos(videoIds);
+
+      const titles = response.data.items.map((item) => item.snippet.title);
+      setVideoDetails(titles);
+    } catch (error) {
+      console.error("Error fetching playlist:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPlaylistVideos();
+  }, []);
+
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleSeek = (e) => {
+    const newTime = parseFloat(e.target.value);
+    setProgress(newTime);
+    if (playerRef.current && duration > 0) {
+      playerRef.current.seekTo(newTime / duration, 'fraction'); // Ensure valid seek
+    }
+  };
+
+  const handleProgress = (state) => {
+    setProgress(state.playedSeconds);
+  };
+
+  const handleDuration = (dur) => {
+    setDuration(dur);
+  };
+
+  const playPrev = () => {
+    setCurrentVideoIndex((prevIndex) =>
+      prevIndex === 0 ? videos.length - 1 : prevIndex - 1
+    );
+  };
+
+  const playNext = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
+  const currentVideoTitle = videoDetails[currentVideoIndex] || "Loading...";
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -65,6 +147,23 @@ export default function Home() {
     { name: "Folk", url: "https://e.snmc.io/i/1200/s/a337c10bee91c9c0cb8bfb9a348266da/2418054" },
     { name: "Dubstep", url: "https://www.dissentmagazine.org/files/bobdylanlarge.gif" },
   ];
+
+  // State for managing tooltip visibility
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [TooltipClose, setTooltipClose] = useState(false);
+
+  // Ref for the login button to get its position
+  const loginButtonRef = useRef(null);
+
+  // Handle the plus button click
+  const handlePlusButtonClick = () => {
+    setShowTooltip(true);
+
+  };
+
+  const handleClose = () => {
+    setShowTooltip(false);
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -123,7 +222,7 @@ export default function Home() {
           <Search className="absolute right-56 top-1/2 h-6 w-6 -translate-y-1/2 text-[#B3B3B3]" />
           <Input onClick={handleBrowse}
             className="pl-11 h-12 bg-[#1F1F1F] border-none placeholder:text-[#B3B3B3] rounded-full focus-within:ring-white transition-all"
-            placeholder="What do you want to play?"
+            placeholder="Browse all rooms"
           />
         </div>
         <div className="flex items-center gap-2">
@@ -132,7 +231,7 @@ export default function Home() {
               Sign up
             </Button>
             <SignInButton>
-              <Button className="bg-white hover:bg-gray-200 text-black rounded-full px-4 py-1 md:px-5 md:py-5 text-sm md:text-base font-bold">
+              <Button className="bg-white hover:bg-gray-200 text-black rounded-full px-4 py-1 md:px-5 md:py-5 text-sm md:text-base font-bold" ref={loginButtonRef}>
                 Log in
               </Button>
             </SignInButton>
@@ -158,20 +257,39 @@ export default function Home() {
                 <History className="h-6 w-6 text-[#B3B3B3]" />
                 <span className="font-semibold">Your recent posts</span>
               </button>
-              <button className="text-[#B3B3B3] hover:text-white">
+              <button className="text-[#B3B3B3] hover:text-white" onClick={handlePlusButtonClick}>
                 <Plus className="h-6 w-6" />
               </button>
             </div>
             <div className="space-y-4">
+              <SignedOut>
               <div className="bg-[#242424] p-4 rounded-lg text-white flex flex-col gap-y-1 py-5">
                 <h3 className="text-lg font-bold mb-1">Discover new creativity on Jamify</h3>
                 <Button className="bg-white hover:bg-gray-100 text-black rounded-full px-4 py-2 font-bold text-sm w-36">
                   Browse Rooms
                 </Button>
               </div>
+              </SignedOut>
             </div>
           </div>
         </aside>
+        {showTooltip && (
+            <div className='flex flex-col gap-1 text-left text-nowrap absolute bg-blue-400 text-black rounded-md p-4 z-50 right-4 w-72'>
+              <div className='flex justify-between'>
+                <h2 className='font-bold'>
+                  You’re logged out
+                </h2>
+                <button className="flex bg-transparent text-black p-0" onClick={handleClose}>
+                  <X className='w-5 h-5'/>
+                </button>
+              </div>
+              <div>
+                <p className='text-xs md:text-sm'>
+                  Log in to perform this action
+                </p>
+              </div>
+            </div>
+        )}
 
         {/* Resizer */}
         <div
@@ -181,7 +299,7 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 mt-0 p-4 md:p-6 overflow-y-auto h-[calc(88vh-80px)] bg-gradient-to-b from-[#1f1f1f] to-[#121212] m-4 rounded-xl scrollable-container">
+        <main className="flex-1 mt-0 p-4 md:p-6 overflow-y-auto md:h-[calc(88vh-80px)] h-[calc(85vh-80px)] bg-gradient-to-b from-[#1f1f1f] to-[#121212] m-4 rounded-xl scrollable-container">
 
           {!showGrid ? (
             <>
@@ -236,7 +354,7 @@ export default function Home() {
                 <div className="overflow-x-auto">
                   <div className="md:gap-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                     {genres.map((genre) => (
-                      <a key={genre} href={genre.name} className="min-w-[150px] md:min-w-[200px] group">
+                      <a href={genre.name} className="min-w-[150px] md:min-w-[200px] group">
                         <div className="aspect-square bg-[#242424] rounded-lg overflow-hidden mb-2 md:mb-4">
                           <img
                             src={`${genre.url}?height=200&width=200&`}
@@ -259,7 +377,7 @@ export default function Home() {
               <div className="overflow-x-auto">
                 <div className="md:gap-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                   {genresbrowse.map((genreall) => (
-                    <a key={genreall} href={genreall.name} className="min-w-[150px] md:min-w-[200px] group">
+                    <a href={genreall.name} className="min-w-[150px] md:min-w-[200px] group">
                       <div className="aspect-square bg-[#242424] rounded-lg overflow-hidden mb-2 md:mb-4">
                         <img
                           src={`${genreall.url}?height=200&width=200&`}
@@ -295,8 +413,66 @@ export default function Home() {
       </SignedOut>
       {/* Section to show the spotify player when the user is signed in */}
       <SignedIn>
-        <div className="bottom-0 left-0 right-0 bg-[#000000] pl-4 pr-4">
-        <iframe src="https://open.spotify.com/embed/playlist/3cYkDF2dfWuImSRkqJedWC?utm_source=generator&theme=0" width="100%" height="90" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div className="fixed bottom-3.5 left-0 right-0 bg-black">
+          <div className="flex justify-center w-full mx-auto px-6">
+
+            <ReactPlayer
+              ref={playerRef}
+              url={`https://www.youtube.com/watch?v=${videos[currentVideoIndex]}`}
+              playing={isPlaying}
+              onProgress={handleProgress}
+              onDuration={handleDuration}
+              onEnded={playNext}
+              height="0"
+              width="0"
+              controls={false}
+            />
+            <div className='w-full flex justify-between'>
+
+              <div className='flex items-center song-name-container'>
+                <h4 className='song-name'>{currentVideoTitle}</h4>
+              </div>
+
+              <div className="">
+                <div className="flex items-center justify-center gap-4">
+                  <div className='w-40 flex justify-evenly items-center'>
+                    <Button onClick={playPrev} variant="ghost" size="icon" className="hover:scale-105 text-neutral-400 hover:text-white">
+                      <SkipBack className="h-5 w-5 fill-current" />
+                    </Button>
+                    <Button
+                      size="icon"
+                      className="hover:scale-105 h-8 w-8 rounded-full bg-white hover:bg-neutral-200 text-black"
+                      onClick={togglePlayPause}
+                    >
+                      {isPlaying ? <Pause className="h-5 w-5 fill-black" /> : <Play className="h-5 w-5 ml-0.5 fill-black" />}
+                    </Button>
+                    <Button onClick={playNext} variant="ghost" size="icon" className="hover:scale-105 text-neutral-400 hover:text-white">
+                      <SkipForward className="h-5 w-5 fill-current" />
+                    </Button>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center gap-2 mb-2 group cursor-pointer">
+                  <span className="text-xs text-neutral-400 w-10 text-center">{formatTime(progress)}</span>
+                  <Slider
+                    value={[progress]}
+                    max={duration}
+                    step={0.1}
+                    onValueChange={(newValue) => handleSeek({ target: { value: newValue } })}
+                    className="w-48 md:w-96"
+                  />
+                  <span className="text-xs text-neutral-400 w-10 text-center">{formatTime(duration)}</span>
+                </div>
+              </div>
+
+              <div className='flex items-center justify-end w-56'>
+                <a href={`https://www.youtube.com/watch?v=${videos[currentVideoIndex]}`} target="_blank" className='flex gap-2 text-neutral-400 hover:text-[#FF0033] transition-all'>
+                  YouTube<ExternalLink className='w-5 h-5' />
+                </a>
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </SignedIn>
 

@@ -166,6 +166,36 @@
   font-family: 'SpotifyMix', sans-serif;
 }
 
+.song-name-container {
+  width: 300px; /* Fixed container width */
+  overflow: hidden; /* Hide extra text except during animation */
+  white-space: nowrap; /* Keep text in one line */
+  position: relative;
+}
+
+.song-name.animate {
+  animation: scrollLeftToRight 8s linear infinite;
+}
+
+.song-name {
+  display: inline-block; /* Ensures text stays inline */
+  white-space: nowrap; /* Prevent text wrapping */
+  position: relative; /* For precise positioning */
+  animation: spotify-scroll 14s linear infinite; /* Smooth back-and-forth animation */
+}
+
+@keyframes spotify-scroll {
+  0% {
+    transform: translateX(0px); /* Start completely to the right (outside container) */
+  }
+  50% {
+    transform: translateX(calc(-100% + 300px)); /* Move to the left (with slight overflow) */
+  }
+  100% {
+    transform: translateX(0px); /* Return to the start position */
+  }
+}
+
 /* :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
