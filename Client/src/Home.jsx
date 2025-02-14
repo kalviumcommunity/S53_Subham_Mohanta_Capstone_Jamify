@@ -53,7 +53,7 @@ export default function Home() {
       const titles = response.data.items.map((item) => item.snippet.title);
       setVideoDetails(titles);
     } catch (error) {
-      console.error("Error fetching playlist:", error);
+      console.error("Error fetching playlist", error);
     }
   };
 
@@ -150,8 +150,7 @@ export default function Home() {
 
   // State for managing tooltip visibility
   const [showTooltip, setShowTooltip] = useState(false);
-  const [TooltipClose, setTooltipClose] = useState(false);
-
+  
   // Ref for the login button to get its position
   const loginButtonRef = useRef(null);
 
@@ -164,6 +163,8 @@ export default function Home() {
   const handleClose = () => {
     setShowTooltip(false);
   }
+
+  console.log()
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -220,10 +221,12 @@ export default function Home() {
             <HomeIcon className='h-full w-full text-[#B3B3B3]' />
           </Button>
           <Search className="absolute right-56 top-1/2 h-6 w-6 -translate-y-1/2 text-[#B3B3B3]" />
+          <Link to="/Browse">
           <Input onClick={handleBrowse}
             className="pl-11 h-12 bg-[#1F1F1F] border-none placeholder:text-[#B3B3B3] rounded-full focus-within:ring-white transition-all"
             placeholder="Browse all rooms"
           />
+          </Link>
         </div>
         <div className="flex items-center gap-2">
           <SignedOut>
@@ -244,11 +247,11 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="flex relative">
+      <div className="flex relative ml-2 mr-2 gap-1.5">
         {/* Sidebar */}
         <aside
           ref={sidebarRef}
-          className="bg-[#121212]  h-[calc(88vh-80px)] overflow-y-auto hidden md:block m-3 mt-0 rounded-xl"
+          className="bg-[#121212]  h-[calc(88vh-80px)] overflow-y-auto hidden md:block mt-0 rounded-xl"
           style={{ width: `${sidebarWidth}px` }}
         >
           <div className="p-6">
@@ -291,15 +294,15 @@ export default function Home() {
             </div>
         )}
 
-        {/* Resizer */}
-        <div
-          className="w-0.5 h-[calc(84vh-80px)] my-4 cursor-col-resize bg-[#282828] hover:bg-zinc-500 active:bg-zinc-500 hidden md:block"
+                {/* Resizer */}
+                <div
+          className="w-0.5 h-[calc(84vh-80px)] my-4 cursor-grab bg-[#000000] hover:bg-zinc-500 active:bg-zinc-500 hidden md:block transition-colors"
           onMouseDown={() => setIsResizing(true)}
         >
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 mt-0 p-4 md:p-6 overflow-y-auto md:h-[calc(88vh-80px)] h-[calc(85vh-80px)] bg-gradient-to-b from-[#1f1f1f] to-[#121212] m-4 rounded-xl scrollable-container">
+        <main className="flex-1 mt-0 p-4 md:p-6 overflow-y-auto md:h-[calc(88vh-80px)] h-[calc(85vh-80px)] bg-gradient-to-b from-[#1f1f1f] to-[#121212] rounded-xl scrollable-container">
 
           {!showGrid ? (
             <>
@@ -395,8 +398,7 @@ export default function Home() {
         </main>
       </div>
 
-      {/* Footer Preview Banner */}
-      <SignedOut>
+      {/* <SignedOut>
         <div className="bottom-0 left-0 right-0 bg-[#DF5F15] p-2 md:p-4">
           <div className="flex flex-col md:flex-row items-center justify-between max-w-10xl">
             <div className="text-center md:text-left mb-2 md:mb-0">
@@ -410,12 +412,10 @@ export default function Home() {
             </SignUpButton>
           </div>
         </div>
-      </SignedOut>
-      {/* Section to show the spotify player when the user is signed in */}
+      </SignedOut>]
       <SignedIn>
         <div className="fixed bottom-3.5 left-0 right-0 bg-black">
           <div className="flex justify-center w-full mx-auto px-6">
-
             <ReactPlayer
               ref={playerRef}
               url={`https://www.youtube.com/watch?v=${videos[currentVideoIndex]}`}
@@ -474,7 +474,7 @@ export default function Home() {
 
           </div>
         </div>
-      </SignedIn>
+      </SignedIn> */}
 
     </div>
   )
